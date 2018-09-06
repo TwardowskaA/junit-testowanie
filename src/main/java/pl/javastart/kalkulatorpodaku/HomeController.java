@@ -20,7 +20,8 @@ public class HomeController {
     @PostMapping("/calculate")
     @ResponseBody
     public String calculate(InputData model) {
-        return "Podatek do zapłacenia to : " + 123 + "zł";
+        TaxCalculator taxCalculator = new TaxCalculator();
+        return "Podatek do zapłacenia to : " + taxCalculator.calculateTax(model.getIncome()) + "zł";
     }
 
 }
